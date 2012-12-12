@@ -27,7 +27,7 @@ public class AppTela1 extends Activity {
 				teste.get(29).toString(), teste.get(36).toString(),
 				teste.get(43).toString() };
 		teste = null;
-		
+
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, contatos);
 		listaI = (ListView) findViewById(R.id.lista1);

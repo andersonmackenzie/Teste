@@ -11,7 +11,7 @@ import org.jsoup.nodes.Element;
 public class Tratamento {
 	public List<String> tabelaDados() {
 
-		StringBuffer html = new PegaDados().recebe();
+		StringBuilder html = new PegaDados().recebe();
 
 		Document doc = Jsoup.parse(html.toString());
 

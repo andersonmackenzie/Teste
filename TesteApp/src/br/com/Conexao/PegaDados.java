@@ -14,19 +14,25 @@ import org.apache.http.client.params.AuthPolicy;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
+import br.com.Auxiliares.User;
+
 public class PegaDados {
 
-	public StringBuffer recebe() {
+	public StringBuilder recebe() {
 
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 
 		List<String> authpref = new ArrayList<String>();
 		authpref.add(AuthPolicy.BASIC);
 
-		HttpPost httpget = new HttpPost(
-				"http://www3.mackenzie.com.br/tia/verifica.php?alumat=31087922&pass=kjcr*74&unidade=001");
+		User user = User.getInstance();
 
-		StringBuffer conteudo = new StringBuffer();
+		HttpPost httpget = new HttpPost(
+				"http://www3.mackenzie.com.br/tia/verifica.php?alumat="
+						+ user.getTia() + "&pass=" + user.getSenha()
+						+ "&unidade=" + user.getUnidade());
+
+		StringBuilder conteudo = new StringBuilder();
 		HttpResponse response;
 		try {
 			response = httpclient.execute(httpget);
@@ -66,4 +72,50 @@ public class PegaDados {
 
 		return conteudo;
 	}
+
+	public boolean existe(User user) {
+
+		DefaultHttpClient httpclient = new DefaultHttpClient();
+
+		List<String> authpref = new ArrayList<String>();
+		authpref.add(AuthPolicy.BASIC);
+
+		HttpPost httpget = new HttpPost(
+				"http://www3.mackenzie.com.br/tia/verifica.php?alumat="
+						+ user.getTia() + "&pass=" + user.getSenha()
+						+ "&unidade=" + user.getUnidade());
+
+		HttpResponse response;
+		try {
+			response = httpclient.execute(httpget);
+			HttpEntity entity = response.getEntity();
+
+			int contador = 0;
+			if (entity != null) {
+
+				BufferedReader rd = new BufferedReader(new InputStreamReader(
+						response.getEntity().getContent()));
+
+				while (rd.readLine() != null) {
+					contador++;
+
+				}
+
+				httpclient.getConnectionManager().shutdown();
+			}
+
+			if (contador > 150)
+				return true;
+			return false;
+
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+			return false;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+
 }

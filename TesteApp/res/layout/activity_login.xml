@@ -60,6 +60,7 @@
         android:layout_below="@+id/spinnerUnidade"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp"
+        android:onClick="logar"
         android:text="@string/enviar" />
 
 </RelativeLayout>
