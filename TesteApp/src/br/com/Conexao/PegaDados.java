@@ -28,9 +28,9 @@ public class PegaDados {
 		User user = User.getInstance();
 
 		HttpPost httpget = new HttpPost(
-				"http://www3.mackenzie.com.br/tia/verifica.php?alumat="
-						+ user.getTia() + "&pass=" + user.getSenha()
-						+ "&unidade=" + user.getUnidade());
+
+				"");
+>>>>>>> 6301b461b9a86c677f498fd41a51b81311e82c77
 
 		StringBuilder conteudo = new StringBuilder();
 		HttpResponse response;
