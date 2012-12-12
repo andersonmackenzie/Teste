@@ -24,7 +24,7 @@ public class PegaDados {
 		authpref.add(AuthPolicy.BASIC);
 
 		HttpPost httpget = new HttpPost(
-				"http://www3.mackenzie.com.br/tia/verifica.php?alumat=31087922&pass=kjcr*74&unidade=001");
+				"");
 
 		StringBuffer conteudo = new StringBuffer();
 		HttpResponse response;
