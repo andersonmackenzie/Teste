@@ -31,8 +31,7 @@ public class Login extends Activity {
 
 		edTia = (EditText) findViewById(R.id.Tia);
 		senha = (EditText) findViewById(R.id.senha);
-		edTia.setText("31087922");
-		senha.setText("kjcr*74");
+	
 
 	}
 
