@@ -17,7 +17,6 @@
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -45,7 +44,14 @@
             android:name=".AppTela6"
             android:label="@string/app_name" >
         </activity>
-        
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+       <activity
+            android:name=".MenuActivity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

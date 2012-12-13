@@ -17,7 +17,7 @@ public class Login extends Activity {
 
 	private User user;
 
-	private EditText tia;
+	private EditText edTia;
 	private EditText senha;
 	private Spinner spinner;
 
@@ -29,26 +29,27 @@ public class Login extends Activity {
 
 		preencherSpinner();
 
-		tia = (EditText) findViewById(R.id.Tia);
+		edTia = (EditText) findViewById(R.id.Tia);
 		senha = (EditText) findViewById(R.id.senha);
+		edTia.setText("31087922");
+		senha.setText("kjcr*74");
 
 	}
 
 	public void logar(View view) {
 
-		StringBuffer valorTia = new StringBuffer(tia.getText().toString());
+		StringBuffer valorTia = new StringBuffer(edTia.getText().toString());
 		int tia = Integer.parseInt(valorTia.toString());
 		user.setTia(tia);
 
 		user.setSenha(senha.getText().toString());
 
-		// exibeMensagem();
-
-		if (new PegaDados().existe(User.getInstance())) {
-
-			Intent i = new Intent(Login.this, MainActivity.class);
+		if (PegaDados.getInstance().existe(User.getInstance())) {
+			Intent i = new Intent(Login.this, MenuActivity.class);
 			startActivity(i);
-
+			finish();
+		} else {
+			exibeMensagem("Erro", "Usuario ou senha Incorretos");
 		}
 
 		// exibeMensagemLogado(new PegaDados().existe(User.getInstance()));
@@ -86,13 +87,11 @@ public class Login extends Activity {
 		});
 	}
 
-	public void exibeMensagem() {
+	public void exibeMensagem(String titulo, String msn) {
 		AlertDialog.Builder dialogo = new Builder(Login.this);
-		dialogo.setTitle("Resultado");
-		dialogo.setMessage("Valor: "
-				+ String.valueOf("Tia" + user.getTia() + "Senha"
-						+ user.getSenha() + "Unidade" + user.getUnidade()));
-		dialogo.setNeutralButton("Ok", null);
+		dialogo.setTitle(titulo);
+		dialogo.setMessage(msn);
+		dialogo.setNeutralButton("Sair", null);
 		dialogo.show();
 	}
 

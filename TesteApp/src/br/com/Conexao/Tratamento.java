@@ -8,10 +8,14 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import br.com.Auxiliares.User;
+
 public class Tratamento {
 	public List<String> tabelaDados() {
 
-		StringBuilder html = new PegaDados().recebe();
+		PegaDados dados = PegaDados.getInstance();
+
+		StringBuilder html = dados.getConteudo();
 
 		Document doc = Jsoup.parse(html.toString());
 
@@ -32,7 +36,7 @@ public class Tratamento {
 			lista.add(ite.next().text());
 
 		}
-		
+
 		return lista;
 
 	}

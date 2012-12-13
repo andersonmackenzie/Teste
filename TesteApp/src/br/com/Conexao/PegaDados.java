@@ -17,24 +17,28 @@ import org.apache.http.util.EntityUtils;
 import br.com.Auxiliares.User;
 
 public class PegaDados {
+	private StringBuilder conteudo;
+	private static PegaDados instance;
 
-	public StringBuilder recebe() {
+	private PegaDados() {
+
+	}
+
+	public void recebe() {
 
 		DefaultHttpClient httpclient = new DefaultHttpClient();
+
+		User user = User.getInstance();
 
 		List<String> authpref = new ArrayList<String>();
 		authpref.add(AuthPolicy.BASIC);
 
-		User user = User.getInstance();
-
 		HttpPost httpget = new HttpPost(
 
-				"http://www3.mackenzie.com.br/tia/verifica.php?alumat="
-						+ user.getTia() + "&pass=" + user.getSenha()
-						+ "&unidade=" + user.getUnidade());
+		"http://www3.mackenzie.com.br/tia/verifica.php?alumat=" + user.getTia()
+				+ "&pass=" + user.getSenha() + "&unidade=" + user.getUnidade());
 
-
-		StringBuilder conteudo = new StringBuilder();
+		conteudo = new StringBuilder();
 		HttpResponse response;
 		try {
 			response = httpclient.execute(httpget);
@@ -72,7 +76,7 @@ public class PegaDados {
 			e.printStackTrace();
 		}
 
-		return conteudo;
+		// return conteudo;
 	}
 
 	public boolean existe(User user) {
@@ -106,8 +110,11 @@ public class PegaDados {
 				httpclient.getConnectionManager().shutdown();
 			}
 
-			if (contador > 150)
+			if (contador > 150) {
+				recebe(); // temporario
 				return true;
+
+			}
 			return false;
 
 		} catch (ClientProtocolException e) {
@@ -118,6 +125,22 @@ public class PegaDados {
 			return false;
 		}
 
+	}
+
+	public StringBuilder getConteudo() {
+		return conteudo;
+	}
+
+	public void setConteudo() {
+		conteudo = new StringBuilder();
+	}
+
+	public static PegaDados getInstance() {
+
+		if (instance == null)
+			instance = new PegaDados();
+
+		return instance;
 	}
 
 }

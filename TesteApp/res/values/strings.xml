@@ -21,5 +21,10 @@
     <string name="mat">Matrícula</string>
     <string name="senha">Senha:</string>
     <string name="enviar">Enviar</string>
+    <string name="title_activity_teste">Teste</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="horario">Horário</string>
+    <string name="notas">Notas</string>
+    <string name="sair">Sair</string>
 
 </resources>
