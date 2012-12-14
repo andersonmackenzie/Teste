@@ -1,0 +1,30 @@
+<resources>
+
+    <string name="app_name">TesteApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="aulas">Aulas</string>
+    <string name="title_activity_login">Login</string>
+
+    <string-array name="valores">
+        <item>São Paulo</item>
+        <item>Tamboré</item>
+        <item>Brasilia</item>
+        <item>Campinas</item>
+        <item>Recife</item>
+        <item>Brasilia</item>
+        <item>Rio de Janeiro</item>
+        <item>AEJA</item>
+    </string-array>
+
+    <string name="mat">Matrícula</string>
+    <string name="senha">Senha:</string>
+    <string name="enviar">Enviar</string>
+    <string name="title_activity_teste">Teste</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="horario">Horário</string>
+    <string name="notas">Notas</string>
+    <string name="sair">Sair</string>
+    <string name="mack">Horarios e Notas</string>
+</resources>

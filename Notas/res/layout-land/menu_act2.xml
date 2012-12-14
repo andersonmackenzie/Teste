@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/btHorario"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:onClick="goHorario"
+        android:text="@string/horario" />
+
+    <Button
+        android:id="@+id/btNotas"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btHorario"
+        android:layout_alignBottom="@+id/btHorario"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@+id/btHorario"
+        android:onClick="goNotas"
+        android:text="@string/notas" />
+
+    <Button
+        android:id="@+id/btSair"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btNotas"
+        android:layout_alignBottom="@+id/btNotas"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@+id/btNotas"
+        android:onClick="sair"
+        android:text="@string/sair" />
+
+</RelativeLayout>
