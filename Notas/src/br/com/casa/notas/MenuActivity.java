@@ -22,8 +22,8 @@ public class MenuActivity extends Activity {
 	}
 
 	public void goNotas(View view) {
-		// Intent i = new Intent(MenuActivity.this, NotasActivity.class);
-		// startActivity(i);
+		 Intent i = new Intent(MenuActivity.this, NotasActivity.class);
+		 startActivity(i);
 	}
 
 	public void sair(View view) {

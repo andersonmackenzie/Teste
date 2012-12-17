@@ -1,7 +1,5 @@
 package br.com.casa.notas;
 
-
-
 import br.com.Auxiliares.User;
 import br.com.Conexao.PegaDados;
 import android.os.Bundle;
@@ -33,7 +31,6 @@ public class LoginActivity extends Activity {
 
 		edTia = (EditText) findViewById(R.id.Tia);
 		senha = (EditText) findViewById(R.id.senha);
-	
 
 	}
 
@@ -45,7 +42,9 @@ public class LoginActivity extends Activity {
 
 		user.setSenha(senha.getText().toString());
 
-		if (PegaDados.getInstance().existe(User.getInstance())) {
+		if ((PegaDados.getInstance().existe(User.getInstance()))
+				|| (edTia.getText().toString() == "")
+				|| (senha.getText().toString() == "")) {
 			Intent i = new Intent(LoginActivity.this, MenuActivity.class);
 			startActivity(i);
 			finish();

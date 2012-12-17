@@ -24,36 +24,44 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AppTela1"
+            android:name="br.com.casa.notas.AppTela1"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".AppTela2"
+            android:name="br.com.casa.notas.AppTela2"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".AppTela3"
+            android:name="br.com.casa.notas.AppTela3"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".AppTela4"
+            android:name="br.com.casa.notas.AppTela4"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".AppTela5"
+            android:name="br.com.casa.notas.AppTela5"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".AppTela6"
+            android:name="br.com.casa.notas.AppTela6"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="br.com.casa.notas.MainActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".MenuActivity"
+            android:name="br.com.casa.notas.MenuActivity"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="br.com.casa.notas.NotasActivity"
+            android:label="@string/title_activity_notas" >
+        </activity>
+        <activity
+            android:name="br.com.casa.notas.AppTelaNota"
+            android:label="@string/title_activity_app_tela_nota" >
         </activity>
     </application>
 

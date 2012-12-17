@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">TesteApp</string>
@@ -27,4 +28,7 @@
     <string name="notas">Notas</string>
     <string name="sair">Sair</string>
     <string name="mack">Horarios e Notas</string>
+    <string name="title_activity_notas">Notas</string>
+    <string name="title_activity_app_tela_nota">Notas</string>
+
 </resources>
