@@ -1,4 +1,4 @@
-package br.com.Conexao;
+package teste;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,9 +8,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import br.com.Auxiliares.User;
 
-
-public class Tratamento {
+public class TratamentoNotas {
 	public List<String> tabelaDados() {
 
 		PegaDados dados = PegaDados.getInstance();

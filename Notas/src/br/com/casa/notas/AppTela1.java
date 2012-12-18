@@ -3,6 +3,7 @@ package br.com.casa.notas;
 import java.util.List;
 
 import br.com.Conexao.Tratamento;
+import br.com.Conexao.TratamentoNotas;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;

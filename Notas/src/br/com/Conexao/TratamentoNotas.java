@@ -11,6 +11,18 @@ import org.jsoup.nodes.Element;
 import br.com.Auxiliares.User;
 
 public class TratamentoNotas {
+
+	private static PegaDados dados;
+
+	public TratamentoNotas() {
+		inicializa();
+	}
+
+	private void inicializa() {
+		dados = PegaDados.getInstance();
+		dados.recebeNotas();
+	}
+
 	public List<String> tabelaDados() {
 
 		PegaDados dados = PegaDados.getInstance();
@@ -38,6 +50,30 @@ public class TratamentoNotas {
 		}
 
 		return lista;
+
+	}
+
+	public static List<String[]> prencheArray2() {
+
+		List<StringBuffer> a = dados.getDadosNotas();
+		Iterator<StringBuffer> iterator = a.iterator();
+		List<String[]> l = new ArrayList<String[]>();
+
+		String[] list;
+
+		while (iterator.hasNext()) {
+			int valor = 0;
+
+			list = new String[14];
+			while (valor <= 13) {
+
+				list[valor++] = iterator.next().toString();
+
+			}
+			l.add(list);
+		}
+		System.out.println("Valor do A " + l.size());
+		return l;
 
 	}
 
