@@ -63,6 +63,14 @@
             android:name="br.com.casa.notas.AppTelaNota"
             android:label="@string/title_activity_app_tela_nota" >
         </activity>
+        <activity
+            android:name="br.com.casa.notas.MainNotas"
+            android:label="TAB WIDGET 1" >
+        </activity>
+        <activity
+            android:name="br.com.casa.notas.TabNotas"
+            android:label="TAB WIDGET 1" >
+        </activity>
     </application>
 
 </manifest>

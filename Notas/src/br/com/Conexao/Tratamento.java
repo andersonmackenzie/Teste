@@ -8,8 +8,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-
-
 public class Tratamento {
 	public List<String> tabelaDados() {
 
@@ -26,6 +24,9 @@ public class Tratamento {
 		// String nome = pNome.text();
 
 		Element table = doc.select("table[id=mytable]").first();
+	
+		if (table == null)
+			return new ArrayList<String>();
 
 		Iterator<Element> ite = table.select("td").iterator();
 

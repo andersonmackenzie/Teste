@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@android:id/tabhost"
+    android:id="@+id/tabHost"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
@@ -18,15 +18,17 @@
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-            </TabWidget>
+                android:layout_height="wrap_content"
+                android:layout_weight="40"
+                android:background="#00ffff" />
         </HorizontalScrollView>
 
         <FrameLayout
             android:id="@android:id/tabcontent"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
-        </FrameLayout>
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#ffffff" />
     </LinearLayout>
 
 </TabHost>

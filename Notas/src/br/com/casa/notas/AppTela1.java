@@ -21,16 +21,24 @@ public class AppTela1 extends Activity {
 		setContentView(R.layout.tela1);
 
 		List<String> teste = new Tratamento().tabelaDados();
+		ArrayAdapter<String> adapter;
+		
+		if (teste.size() > 5) {
+			String[] contatos = { teste.get(8).toString(),
+					teste.get(15).toString(), teste.get(22).toString(),
+					teste.get(29).toString(), teste.get(36).toString(),
+					teste.get(43).toString() };
 
-		// List<String> teste = new TesteJsoap().listaDados();
-		String[] contatos = { teste.get(8).toString(),
-				teste.get(15).toString(), teste.get(22).toString(),
-				teste.get(29).toString(), teste.get(36).toString(),
-				teste.get(43).toString() };
+			adapter = new ArrayAdapter<String>(this,
+					android.R.layout.simple_list_item_1, contatos);
+		} else {
+			String[] contatos = { "Não existem dados" };
+			adapter = new ArrayAdapter<String>(this,
+					android.R.layout.simple_list_item_1, contatos);
+		}
+		
+
 		teste = null;
-
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, contatos);
 		listaI = (ListView) findViewById(R.id.lista1);
 		listaI.setAdapter(adapter);
 

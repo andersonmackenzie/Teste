@@ -27,7 +27,7 @@ public class TratamentoNotas {
 
 		PegaDados dados = PegaDados.getInstance();
 
-		StringBuilder html = dados.getConteudo();
+		StringBuilder html = dados.getConteudoNotas();
 
 		Document doc = Jsoup.parse(html.toString());
 

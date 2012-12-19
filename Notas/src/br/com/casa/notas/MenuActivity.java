@@ -22,7 +22,7 @@ public class MenuActivity extends Activity {
 	}
 
 	public void goNotas(View view) {
-		 Intent i = new Intent(MenuActivity.this, NotasActivity.class);
+		 Intent i = new Intent(MenuActivity.this, MainNotas.class);
 		 startActivity(i);
 	}
 

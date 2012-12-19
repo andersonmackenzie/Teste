@@ -1,15 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="#000000"
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
-        android:layout_width="fill_parent"
+        android:id="@+id/txtText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/aulas"
-        android:textSize="20sp" />
+        android:text="TENTATIVA DE BLOG!!1"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +20,7 @@
         android:orientation="vertical" >
 
         <ListView
-            android:id="@+id/lista2"
+            android:id="@+id/listaNota1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
         </ListView>

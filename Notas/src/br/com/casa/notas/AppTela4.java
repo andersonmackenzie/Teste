@@ -19,15 +19,27 @@ public class AppTela4 extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela4);
-
+	
+		ArrayAdapter<String> adapter;
 		List<String> teste = new Tratamento().tabelaDados();
-		String[] contatos = { teste.get(11).toString(),
-				teste.get(18).toString(), teste.get(25).toString(),
-				teste.get(32).toString(), teste.get(39).toString(),
-				teste.get(46).toString() };
 
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, contatos);
+		if (teste.size() > 5) {
+
+			String[] contatos = { teste.get(11).toString(),
+					teste.get(18).toString(), teste.get(25).toString(),
+					teste.get(32).toString(), teste.get(39).toString(),
+					teste.get(46).toString() };
+
+			adapter = new ArrayAdapter<String>(this,
+					android.R.layout.simple_list_item_1, contatos);
+
+		} else {
+
+			String[] contatos = { "Não existem dados" };
+			adapter = new ArrayAdapter<String>(this,
+					android.R.layout.simple_list_item_1, contatos);
+		}
+
 		lista4 = (ListView) findViewById(R.id.lista4);
 		lista4.setAdapter(adapter);
 

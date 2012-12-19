@@ -20,14 +20,23 @@ public class AppTela2 extends Activity {
 		setContentView(R.layout.tela2);
 
 		List<String> teste = new Tratamento().tabelaDados();
-		
-		String[] contatos = { teste.get(9).toString(),
-				teste.get(16).toString(), teste.get(23).toString(),
-				teste.get(30).toString(), teste.get(37).toString(),
-				teste.get(44).toString() };
+		ArrayAdapter<String> adapter;
+		if (teste.size() > 5) {
 
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, contatos);
+			String[] contatos = { teste.get(9).toString(),
+					teste.get(16).toString(), teste.get(23).toString(),
+					teste.get(30).toString(), teste.get(37).toString(),
+					teste.get(44).toString() };
+
+			adapter = new ArrayAdapter<String>(this,
+					android.R.layout.simple_list_item_1, contatos);
+		} else {
+
+			String[] contatos = { "Não existem dados" };
+			adapter = new ArrayAdapter<String>(this,
+					android.R.layout.simple_list_item_1, contatos);
+		}
+
 		listaI2 = (ListView) findViewById(R.id.lista2);
 		listaI2.setAdapter(adapter);
 
