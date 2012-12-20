@@ -17,14 +17,8 @@ public class Tratamento {
 
 		Document doc = Jsoup.parse(html.toString());
 
-		// Element pNome = doc.select("b[class=tituloNomeTia]").first();
-		// String nomeFac =
-		// doc.select("b[class=tituloFaculdade]").first().text();
-		//
-		// String nome = pNome.text();
-
 		Element table = doc.select("table[id=mytable]").first();
-	
+
 		if (table == null)
 			return new ArrayList<String>();
 

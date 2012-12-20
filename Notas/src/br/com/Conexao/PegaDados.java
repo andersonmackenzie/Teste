@@ -21,12 +21,12 @@ import org.jsoup.nodes.Element;
 import br.com.Auxiliares.User;
 
 public class PegaDados {
-	private StringBuilder conteudo;
+	private StringBuilder conteudo = new StringBuilder();
 	private static PegaDados instance;
-	private StringBuilder conteudoNotas;
+	private StringBuilder conteudoNotas = new StringBuilder();
 
 	private PegaDados() {
-
+		recebeNotas();
 	}
 
 	public void recebe() {
@@ -43,7 +43,6 @@ public class PegaDados {
 		"http://www3.mackenzie.com.br/tia/verifica.php?alumat=" + user.getTia()
 				+ "&pass=" + user.getSenha() + "&unidade=" + user.getUnidade());
 
-		conteudo = new StringBuilder();
 		HttpResponse response;
 		try {
 			response = httpclient.execute(httpget);
@@ -51,9 +50,7 @@ public class PegaDados {
 			HttpEntity entity = response.getEntity();
 
 			if (entity != null) {
-
 				EntityUtils.toString(entity);
-
 			}
 
 			HttpPost httpget2 = new HttpPost(
@@ -68,10 +65,8 @@ public class PegaDados {
 				String line = "";
 
 				while ((line = rd.readLine()) != null) {
-
 					conteudo.append(line);
 				}
-
 				httpclient.getConnectionManager().shutdown();
 			}
 
@@ -119,7 +114,6 @@ public class PegaDados {
 				String line = "";
 
 				while ((line = rd.readLine()) != null) {
-
 					conteudoNotas.append(line);
 				}
 
@@ -137,15 +131,9 @@ public class PegaDados {
 
 	public List<StringBuffer> getDadosNotas() {
 
-		StringBuilder html = conteudoNotas;
+		StringBuilder html = getConteudoNotas();
 
 		Document doc = Jsoup.parse(html.toString());
-
-		// Element pNome = doc.select("b[class=tituloNomeTia]").first();
-		// String nomeFac =
-		// doc.select("b[class=tituloFaculdade]").first().text();
-		//
-		// String nome = pNome.text();
 
 		Element table = doc.select("table[id=mytable]").first();
 
@@ -156,7 +144,6 @@ public class PegaDados {
 		StringBuffer saida;
 		while (ite.hasNext()) {
 			saida = new StringBuffer();
-
 			saida.append(ite.next().text());
 			if (i >= 13) {
 				listaNotas.add(saida);
@@ -165,7 +152,6 @@ public class PegaDados {
 			i++;
 		}
 		return listaNotas;
-
 	}
 
 	public boolean existe(User user) {
@@ -201,6 +187,7 @@ public class PegaDados {
 
 			if (contador > 150) {
 				recebe(); // temporario
+				recebeNotas();
 				return true;
 
 			}
@@ -226,16 +213,18 @@ public class PegaDados {
 
 	public static PegaDados getInstance() {
 
-		if (instance == null)
+		if (instance == null) {
 			instance = new PegaDados();
 
+		}
 		return instance;
 	}
 
 	public StringBuilder getConteudoNotas() {
+		// if (conteudoNotas == null) {
+		// recebeNotas();
+		// }
 		return conteudoNotas;
 	}
-
-
 
 }

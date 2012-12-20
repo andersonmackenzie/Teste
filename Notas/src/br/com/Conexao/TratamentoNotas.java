@@ -12,15 +12,21 @@ import br.com.Auxiliares.User;
 
 public class TratamentoNotas {
 
-	private static PegaDados dados;
+	private static TratamentoNotas singleton;
 
-	public TratamentoNotas() {
+	private static PegaDados dados;
+	private List<String[]> conjuntoArrays;
+
+	private int quantidade;
+
+	private TratamentoNotas() {
 		inicializa();
 	}
 
 	private void inicializa() {
 		dados = PegaDados.getInstance();
 		dados.recebeNotas();
+		prencheArray2();
 	}
 
 	public List<String> tabelaDados() {
@@ -30,12 +36,6 @@ public class TratamentoNotas {
 		StringBuilder html = dados.getConteudoNotas();
 
 		Document doc = Jsoup.parse(html.toString());
-
-		// Element pNome = doc.select("b[class=tituloNomeTia]").first();
-		// String nomeFac =
-		// doc.select("b[class=tituloFaculdade]").first().text();
-		//
-		// String nome = pNome.text();
 
 		Element table = doc.select("table[id=mytable]").first();
 
@@ -53,11 +53,12 @@ public class TratamentoNotas {
 
 	}
 
-	public static List<String[]> prencheArray2() {
+	public void prencheArray2() {
 
 		List<StringBuffer> a = dados.getDadosNotas();
+
 		Iterator<StringBuffer> iterator = a.iterator();
-		List<String[]> l = new ArrayList<String[]>();
+		conjuntoArrays = new ArrayList<String[]>();
 
 		String[] list;
 
@@ -70,11 +71,36 @@ public class TratamentoNotas {
 				list[valor++] = iterator.next().toString();
 
 			}
-			l.add(list);
-		}
-		System.out.println("Valor do A " + l.size());
-		return l;
 
+			conjuntoArrays.add(list);
+		}
+		this.quantidade = conjuntoArrays.size();
+
+		// System.out.println("Valor do A " + l.size());
+
+	}
+
+	public List<String[]> getConjuntoArrays() {
+		if (conjuntoArrays == null) {
+			prencheArray2();
+		}
+		return conjuntoArrays;
+	}
+
+	public void setConjuntoArrays(List<String[]> conjuntoArrays) {
+		this.conjuntoArrays = conjuntoArrays;
+
+	}
+
+	public static TratamentoNotas getInstance() {
+		if (singleton == null)
+			singleton = new TratamentoNotas();
+
+		return singleton;
+	}
+
+	public int getQuantNotas() {
+		return quantidade;
 	}
 
 }

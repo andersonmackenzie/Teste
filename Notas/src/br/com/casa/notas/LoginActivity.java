@@ -32,8 +32,6 @@ public class LoginActivity extends Activity {
 		edTia = (EditText) findViewById(R.id.Tia);
 		senha = (EditText) findViewById(R.id.senha);
 
-	
-
 	}
 
 	public void logar(View view) {

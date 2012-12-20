@@ -1,5 +1,6 @@
 package br.com.casa.notas;
 
+import br.com.Conexao.TratamentoNotas;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -23,50 +24,21 @@ public class MainNotas extends ActivityGroup {
 
 		Intent i;
 
-		// Tab #1
-		i = new Intent().setClass(this, TabNotas.class);
-		i.putExtra("tab", "0");
-		spec = tabHost.newTabSpec("0").setIndicator("Tab 1").setContent(i);
-		tabHost.addTab(spec);
+		// Valor da Quantidade
 
-		// Tab #2
-		i = new Intent().setClass(this, TabNotas.class);
-		i.putExtra("tab", "1");
-		spec = tabHost.newTabSpec("1").setIndicator("Tab 2").setContent(i);
-		tabHost.addTab(spec);
-		// Tab #2
-		i = new Intent().setClass(this, TabNotas.class);
-		i.putExtra("tab", "2");
-		spec = tabHost.newTabSpec("2").setIndicator("Tab 3").setContent(i);
-		tabHost.addTab(spec);
-		// Tab #2
-		i = new Intent().setClass(this, TabNotas.class);
-		i.putExtra("tab", "3");
-		spec = tabHost.newTabSpec("3").setIndicator("Tab 4").setContent(i);
-		tabHost.addTab(spec);
+		int quantidade = TratamentoNotas.getInstance().getQuantNotas();
 
-		// Tab #2
-		i = new Intent().setClass(this, TabNotas.class);
-		i.putExtra("tab", "4");
-		spec = tabHost.newTabSpec("4").setIndicator("Tab 5").setContent(i);
-		tabHost.addTab(spec);
-		// Tab #2
-		i = new Intent().setClass(this, TabNotas.class);
-		i.putExtra("tab", "5");
-		spec = tabHost.newTabSpec("5").setIndicator("Tab 6").setContent(i);
-		tabHost.addTab(spec);
-		// Tab #2
-		i = new Intent().setClass(this, TabNotas.class);
-		i.putExtra("tab", "6");
-		spec = tabHost.newTabSpec("6").setIndicator("Tab 7").setContent(i);
-		tabHost.addTab(spec);
-		// Tab #2
-		i = new Intent().setClass(this, TabNotas.class);
-		i.putExtra("tab", "7");
-		spec = tabHost.newTabSpec("7").setIndicator("Tab 8").setContent(i);
-		tabHost.addTab(spec);
+		for (int j = 0; j < quantidade; j++) {
+			// Criacao de Tabs
 
-		// Set a tab a ser carrega ao iniciar a tabhost
+			i = new Intent().setClass(this, TabNotas.class);
+			i.putExtra("tab", j);
+			spec = tabHost.newTabSpec(String.valueOf(j))
+					.setIndicator("Materia").setContent(i);
+			tabHost.addTab(spec);
+
+		}
+
 		tabHost.setCurrentTab(0);
 	}
 }
