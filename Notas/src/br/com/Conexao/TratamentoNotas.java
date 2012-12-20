@@ -3,12 +3,9 @@ package br.com.Conexao;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-
-import br.com.Auxiliares.User;
 
 public class TratamentoNotas {
 
@@ -76,8 +73,6 @@ public class TratamentoNotas {
 		}
 		this.quantidade = conjuntoArrays.size();
 
-		// System.out.println("Valor do A " + l.size());
-
 	}
 
 	public List<String[]> getConjuntoArrays() {
@@ -89,13 +84,11 @@ public class TratamentoNotas {
 
 	public void setConjuntoArrays(List<String[]> conjuntoArrays) {
 		this.conjuntoArrays = conjuntoArrays;
-
 	}
 
 	public static TratamentoNotas getInstance() {
 		if (singleton == null)
 			singleton = new TratamentoNotas();
-
 		return singleton;
 	}
 

@@ -9,9 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-/**
- * super.{@link Activity}
- * */
 public class TabNotas extends Activity {
 	public ListView lista;
 
@@ -24,7 +21,7 @@ public class TabNotas extends Activity {
 
 		int tab = i.getIntExtra("tab", 0);
 
-		TextView text = (TextView) findViewById(R.id.txtText);
+		// TextView text = (TextView) findViewById(R.id.txtText);
 
 		ArrayAdapter<String> adapter = null;
 

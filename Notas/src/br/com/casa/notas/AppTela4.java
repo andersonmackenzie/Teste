@@ -19,7 +19,7 @@ public class AppTela4 extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela4);
-	
+
 		ArrayAdapter<String> adapter;
 		List<String> teste = new Tratamento().tabelaDados();
 
@@ -35,7 +35,7 @@ public class AppTela4 extends Activity {
 
 		} else {
 
-			String[] contatos = { "Não existem dados" };
+			String[] contatos = { "Sem Horários Cadastrados" };
 			adapter = new ArrayAdapter<String>(this,
 					android.R.layout.simple_list_item_1, contatos);
 		}

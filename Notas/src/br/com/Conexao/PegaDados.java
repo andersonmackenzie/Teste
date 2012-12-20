@@ -76,7 +76,6 @@ public class PegaDados {
 			e.printStackTrace();
 		}
 
-		// return conteudo;
 	}
 
 	public void recebeNotas() {
@@ -125,18 +124,13 @@ public class PegaDados {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		// return conteudo;
 	}
 
 	public List<StringBuffer> getDadosNotas() {
 
 		StringBuilder html = getConteudoNotas();
-
 		Document doc = Jsoup.parse(html.toString());
-
 		Element table = doc.select("table[id=mytable]").first();
-
 		Iterator<Element> ite = table.select("td").iterator();
 
 		List<StringBuffer> listaNotas = new ArrayList<StringBuffer>();
@@ -147,7 +141,6 @@ public class PegaDados {
 			saida.append(ite.next().text());
 			if (i >= 13) {
 				listaNotas.add(saida);
-
 			}
 			i++;
 		}
@@ -167,6 +160,7 @@ public class PegaDados {
 						+ "&unidade=" + user.getUnidade());
 
 		HttpResponse response;
+
 		try {
 			response = httpclient.execute(httpget);
 			HttpEntity entity = response.getEntity();
@@ -186,7 +180,8 @@ public class PegaDados {
 			}
 
 			if (contador > 150) {
-				recebe(); // temporario
+				// Inicializa Tudo no Login
+				recebe();
 				recebeNotas();
 				return true;
 
@@ -200,7 +195,6 @@ public class PegaDados {
 			e.printStackTrace();
 			return false;
 		}
-
 	}
 
 	public StringBuilder getConteudo() {
@@ -212,18 +206,13 @@ public class PegaDados {
 	}
 
 	public static PegaDados getInstance() {
-
 		if (instance == null) {
 			instance = new PegaDados();
-
 		}
 		return instance;
 	}
 
 	public StringBuilder getConteudoNotas() {
-		// if (conteudoNotas == null) {
-		// recebeNotas();
-		// }
 		return conteudoNotas;
 	}
 

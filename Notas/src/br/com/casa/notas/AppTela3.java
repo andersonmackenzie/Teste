@@ -31,7 +31,7 @@ public class AppTela3 extends Activity {
 					android.R.layout.simple_list_item_1, contatos);
 		} else {
 
-			String[] contatos = { "Não existem dados" };
+			String[] contatos = { "Sem Horários Cadastrados" };
 			adapter = new ArrayAdapter<String>(this,
 					android.R.layout.simple_list_item_1, contatos);
 		}
