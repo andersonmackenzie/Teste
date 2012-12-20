@@ -10,7 +10,6 @@ import android.widget.TabHost;
 public class MainNotas extends ActivityGroup {
 	static TabHost tabHost;
 
-	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -22,23 +21,23 @@ public class MainNotas extends ActivityGroup {
 
 		TabHost.TabSpec spec;
 
-		Intent i;
+		Intent intent;
 
-		// Valor da Quantidade
+		// Quantidade de abas e materias
 
 		int quantidade = TratamentoNotas.getInstance().getQuantNotas();
 
-		for (int j = 0; j < quantidade; j++) {
+		for (int i = 0; i < quantidade; i++) {
+
 			// Criacao de Tabs
 
-			i = new Intent().setClass(this, TabNotas.class);
-			i.putExtra("tab", j);
-			spec = tabHost.newTabSpec(String.valueOf(j))
-					.setIndicator("Materia").setContent(i);
+			intent = new Intent().setClass(this, TabNotas.class);
+			intent.putExtra("tab", i);
+			spec = tabHost.newTabSpec(String.valueOf(i))
+					.setIndicator("Materia").setContent(intent);
 			tabHost.addTab(spec);
 
 		}
-
 		tabHost.setCurrentTab(0);
 	}
 }
