@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="21dp"
+        android:text="@string/mat"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/Tia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignLeft="@+id/senha"
+        android:layout_alignRight="@+id/senha"
+        android:ems="10"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btEnviar"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerUnidade"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:onClick="logar"
+        android:text="@string/enviar" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/Tia"
+        android:layout_marginTop="39dp"
+        android:text="@string/senha"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/senha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPassword" >
+
+        <requestFocus />
+    </EditText>
+
+    <Spinner
+        android:id="@+id/spinnerUnidade"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/senha"
+        android:layout_alignRight="@+id/senha"
+        android:layout_below="@+id/senha"
+        android:layout_marginTop="30dp"
+        android:entries="@array/valores" />
+
+</RelativeLayout>

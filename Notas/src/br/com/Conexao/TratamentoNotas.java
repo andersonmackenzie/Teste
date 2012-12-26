@@ -41,11 +41,8 @@ public class TratamentoNotas {
 		List<String> lista = new ArrayList<String>();
 
 		while (ite.hasNext()) {
-
 			lista.add(ite.next().text());
-
 		}
-
 		return lista;
 
 	}
@@ -64,15 +61,12 @@ public class TratamentoNotas {
 
 			list = new String[14];
 			while (valor <= 13) {
-
 				list[valor++] = iterator.next().toString();
-
 			}
-
 			conjuntoArrays.add(list);
+
 		}
 		this.quantidade = conjuntoArrays.size();
-
 	}
 
 	public List<String[]> getConjuntoArrays() {

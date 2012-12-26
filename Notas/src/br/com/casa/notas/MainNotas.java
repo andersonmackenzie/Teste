@@ -36,7 +36,6 @@ public class MainNotas extends ActivityGroup {
 			spec = tabHost.newTabSpec(String.valueOf(i))
 					.setIndicator("Materia").setContent(intent);
 			tabHost.addTab(spec);
-
 		}
 		tabHost.setCurrentTab(0);
 	}

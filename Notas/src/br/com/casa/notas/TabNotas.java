@@ -31,12 +31,14 @@ public class TabNotas extends Activity {
 
 		lista = (ListView) findViewById(R.id.listaNota1);
 		lista.setAdapter(adapter);
-
+		
 	}
 
 	public String[] pegaLista(int cod) {
 		List<String[]> listas = TratamentoNotas.getInstance()
 				.getConjuntoArrays();
+		
+		
 		return listas.get(cod);
 	}
 }

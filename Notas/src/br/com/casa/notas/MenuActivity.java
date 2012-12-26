@@ -40,11 +40,8 @@ public class MenuActivity extends Activity {
 
 	@Override
 	public void onDestroy() {
-
 		super.onDestroy();
-
 		Log.d("Cadastro", "Fechando");
-
 	}
 
 }

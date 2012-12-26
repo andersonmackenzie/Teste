@@ -23,17 +23,13 @@ public class Tratamento {
 			return new ArrayList<String>();
 
 		Iterator<Element> ite = table.select("td").iterator();
-
+	
 		List<String> lista = new ArrayList<String>();
 
 		while (ite.hasNext()) {
-
 			lista.add(ite.next().text());
-
 		}
-
 		return lista;
-
 	}
 
 }

@@ -13,38 +13,38 @@ public class MainActivity extends TabActivity {
 		setContentView(R.layout.activity_main);
 
 		TabHost tbHost = getTabHost();
-		TabHost.TabSpec Spec;
+		TabHost.TabSpec spec;
 		Intent intent;
 		intent = new Intent().setClass(this, AppTela1.class);
-		Spec = tbHost.newTabSpec("tab1").setIndicator("Segunda")
+		spec = tbHost.newTabSpec("tab1").setIndicator("Segunda")
 				.setContent(intent);
-		tbHost.addTab(Spec);
+		tbHost.addTab(spec);
 
 		intent = new Intent().setClass(this, AppTela2.class);
-		Spec = tbHost.newTabSpec("tab2").setIndicator("Terça")
+		spec = tbHost.newTabSpec("tab2").setIndicator("Terça")
 				.setContent(intent);
-		tbHost.addTab(Spec);
+		tbHost.addTab(spec);
 
 		intent = new Intent().setClass(this, AppTela3.class);
 
-		Spec = tbHost.newTabSpec("tab3").setIndicator("Quarta")
+		spec = tbHost.newTabSpec("tab3").setIndicator("Quarta")
 				.setContent(intent);
-		tbHost.addTab(Spec);
+		tbHost.addTab(spec);
 
 		intent = new Intent().setClass(this, AppTela4.class);
-		Spec = tbHost.newTabSpec("tab4").setIndicator("Quinta")
+		spec = tbHost.newTabSpec("tab4").setIndicator("Quinta")
 				.setContent(intent);
-		tbHost.addTab(Spec);
+		tbHost.addTab(spec);
 
 		intent = new Intent().setClass(this, AppTela5.class);
-		Spec = tbHost.newTabSpec("tab5").setIndicator("Sexta")
+		spec = tbHost.newTabSpec("tab5").setIndicator("Sexta")
 				.setContent(intent);
-		tbHost.addTab(Spec);
+		tbHost.addTab(spec);
 
 		intent = new Intent().setClass(this, AppTela6.class);
-		Spec = tbHost.newTabSpec("tab6").setIndicator("Sabado")
+		spec = tbHost.newTabSpec("tab6").setIndicator("Sabado")
 				.setContent(intent);
-		tbHost.addTab(Spec);
+		tbHost.addTab(spec);
 		tbHost.setCurrentTab(0);
 	}
 

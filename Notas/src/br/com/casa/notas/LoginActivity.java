@@ -2,10 +2,13 @@ package br.com.casa.notas;
 
 import br.com.Auxiliares.User;
 import br.com.Conexao.PegaDados;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -32,7 +35,6 @@ public class LoginActivity extends Activity {
 		edTia = (EditText) findViewById(R.id.Tia);
 		senha = (EditText) findViewById(R.id.senha);
 
-		
 	}
 
 	public void logar(View view) {
@@ -43,16 +45,20 @@ public class LoginActivity extends Activity {
 
 		user.setSenha(senha.getText().toString());
 
-		if ((PegaDados.getInstance().existe(User.getInstance()))
-				|| (edTia.getText().toString() == "")
-				|| (senha.getText().toString() == "")) {
-			Intent i = new Intent(LoginActivity.this, MenuActivity.class);
-			startActivity(i);
-			finish();
-		} else {
-			exibeMensagem("Erro", "Usuario ou senha Incorretos");
-		}
+		if (existeConexao(this)) {
 
+			if ((PegaDados.getInstance().existe(User.getInstance()))
+					|| (edTia.getText().toString() == "")
+					|| (senha.getText().toString() == "")) {
+				Intent i = new Intent(LoginActivity.this, MenuActivity.class);
+				startActivity(i);
+				finish();
+			} else {
+				exibeMensagem("Erro", "Usuario ou senha Incorretos");
+			}
+		} else {
+			exibeMensagem("Aviso", "Não conectado na internet");
+		}
 		// exibeMensagemLogado(new PegaDados().existe(User.getInstance()));
 
 	}
@@ -109,4 +115,18 @@ public class LoginActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_login, menu);
 		return true;
 	}
+
+	public static boolean existeConexao(Context contexto) {
+		ConnectivityManager cm = (ConnectivityManager) contexto
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+		NetworkInfo netInfo = cm.getActiveNetworkInfo();
+		System.out.println("NETWORK INFO: " + netInfo.getSubtypeName());
+
+		if ((netInfo != null) && (netInfo.isConnectedOrConnecting())
+				&& (netInfo.isAvailable()))
+			return true;
+		return false;
+	}
+
 }
